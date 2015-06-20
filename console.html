@@ -1,0 +1,48 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="glfx.js"></script>
+	<script src="crt.js"></script>
+
+	<script>
+	$(document).ready(function() { writeToCanvas() });
+
+	$( document ).keypress(function( event ) {
+		
+		var keyPressed = event.which;
+		event.preventDefault();
+		
+        if (event.keyCode==13){
+        	i++;
+        	text.push(">");
+        	if (text.length > 18){
+            	console.log("in");
+            	textStart = textStart + 1;
+   			}
+        }
+		var letterPressed = String.fromCharCode(keyPressed);
+		text[i] = text[i] + letterPressed
+		writeToCanvas();
+	});
+	$(document).on("keydown", function (e) {
+    if (e.which === 8 && !$(e.target).is("input, textarea")) {
+        e.preventDefault();
+    }
+});
+	</script>
+</head>
+
+<body>
+
+	<canvas id="shownCan" width="700" style="display: none;" height="600">
+
+	</canvas>
+
+	<canvas id="hiddenCan" style="display: none;" width="700" height="600">
+
+	</canvas>
+
+</body>
+
+
+</html>
